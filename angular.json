@@ -22,7 +22,8 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
-          "options": {
+          
+            "options": {
             "outputPath": "dist/school",
             "index": "src/index.html",
             "browser": "src/main.ts",
