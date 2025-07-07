@@ -1,0 +1,87 @@
+<div class="container custom-card p-4 mt-4 mb-4">
+  <div class="row">
+    <div class="col-12 col-md-10 col-lg-8 mx-auto">
+      <h1 class="text-center mb-4 app-pink-text">Cadastro de Contatos</h1>
+      <form [formGroup]="formGroupContato">
+        <div class="mb-3">
+          <label for="inputNome" class="form-label">Nome Completo <span class="text-danger">*</span></label>
+          <input formControlName="nome" type="text" class="form-control" id="inputNome" aria-describedby="nomeHelp" />
+          <div id="nomeHelp" class="form-text">Digite o nome completo do contato.</div>
+          <div *ngIf="formGroupContato.get('nome')?.invalid && formGroupContato.get('nome')?.touched" class="text-danger">
+            Nome é obrigatório.
+          </div>
+        </div>
+         <div class="mb-3">
+                        <label for="inputApelido" class="form-label">Apelido</label>
+                        <input formControlName="apelido" type="text" class="form-control" id="inputApelido" aria-describedby="apelidoHelp">
+                        <div id="apelidoHelp" class="form-text">Digite o apelido</div>
+                    </div>
+
+        <div class="mb-3">
+          <label for="inputEmailPrincipal" class="form-label">E-mail Principal <span class="text-danger">*</span></label>
+          <input formControlName="email" type="email" class="form-control" id="inputEmailPrincipal" aria-describedby="emailHelp" />
+          <div id="emailHelp" class="form-text">Digite o e-mail principal do contato.</div>
+          <div *ngIf="formGroupContato.get('email')?.invalid && formGroupContato.get('email')?.touched && !formGroupContato.get('email')?.hasError('emailTaken')" class="text-danger">
+            E-mail é obrigatório e deve ser válido.
+          </div>
+          <div *ngIf="formGroupContato.get('email')?.hasError('emailTaken') && formGroupContato.get('email')?.touched" class="text-danger">
+            Este e-mail já está em sua lista de contatos.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="inputTelefones" class="form-label">Telefones <span class="text-danger">*</span></label>
+          <input formControlName="telefone" type="text" class="form-control" id="inputTelefones" aria-describedby="telefoneHelp" />
+          <div id="telefoneHelp" class="form-text">Ex: (XX) XXXXX-XXXX / (XX) ZZZZ-ZZZZ.</div>
+          <div *ngIf="formGroupContato.get('telefone')?.invalid && formGroupContato.get('telefone')?.touched && !formGroupContato.get('telefone')?.hasError('phoneTaken')" class="text-danger">
+            Telefone é obrigatório.
+          </div>
+          <div *ngIf="formGroupContato.get('telefone')?.hasError('phoneTaken') && formGroupContato.get('telefone')?.touched" class="text-danger">
+            Este telefone já está em sua lista de contatos.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="inputEndereco" class="form-label">Endereço Residencial</label>
+          <input formControlName="endereco" type="text" class="form-control" id="inputEndereco" aria-describedby="enderecoHelp" />
+          <div id="enderecoHelp" class="form-text">Rua, número, bairro, cidade, estado, CEP.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="inputDataNascimento" class="form-label">Aniversário</label>
+          <input formControlName="aniversario" type="date" class="form-control" id="inputaniversario" aria-describedby="dataaniversarioHelp" />
+          <div id="dataNascimentoHelp" class="form-text">Formato: AAAA-MM-DD.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="inputCategoria" class="form-label">Categoria</label>
+          <input formControlName="categoria" type="text" class="form-control" id="inputCategoria" aria-describedby="categoriaHelp" />
+          <div id="categoriaHelp" class="form-text">Ex: Família, Trabalho, Escola, Amigos.</div>
+        </div>
+
+        <div class="mb-3 form-check">
+          <input formControlName="favorito" type="checkbox" class="form-check-input" id="inputFavorito" />
+          <label class="form-check-label" for="inputFavorito">Favorito</label>
+        </div>
+
+        <div class="mb-3">
+          <label for="inputRedes" class="form-label">URL Redes Sociais</label>
+          <input formControlName="redes" type="url" class="form-control" id="inputRedes" aria-describedby="redesHelp" placeholder="https://linkedin.com/in/..." />
+          <div id="redesSociaisHelp" class="form-text">Link para perfil em redes sociais (ex: LinkedIn, Facebook).</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="inputObservacoes" class="form-label">Observações</label>
+          <textarea formControlName="observacoes" class="form-control" id="inputObservacoes" rows="3" aria-describedby="observacoesHelp"></textarea>
+          <div id="observacoesHelp" class="form-text">Informações adicionais relevantes sobre o contato.</div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+          <button *ngIf="!isEditing" class="btn btn-primary me-md-2" type="submit" (click)="save()">Salvar</button>
+           <button *ngIf="!isEditing" class="btn btn-secondary" type="button" (click)="clear()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

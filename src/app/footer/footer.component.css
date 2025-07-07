@@ -1,0 +1,9 @@
+/* footer.component.css */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Garante que ocupe toda a largura */
+    z-index: 1030; /* Um z-index alto para ficar acima de outros elementos, se necessário.
+                       O padrão do navbar é 1030, então se o footer ficar abaixo, use um valor maior */
+    /* background-color já definido via bg-light no HTML */
+}

@@ -1,0 +1,69 @@
+/* Import Oswald and Tektur from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Tektur&display=swap');
+
+/* Global styles for a lighter greyish-black background and Oswald font */
+body {
+    background-color: #222 !important; /* Lighter, greyish black background */
+    color: #fff !important; /* White text */
+    font-family: 'Oswald', sans-serif !important; /* Oswald for all other texts */
+}
+
+/* Override Bootstrap form control styles for the dark theme */
+.form-control {
+    background-color: #333 !important; /* Darker background for input fields */
+    color: #fff !important; /* White text for input fields */
+    border-color: #555 !important; /* Border color for input fields */
+    font-family: 'Oswald', sans-serif !important; /* Ensure inputs also use Oswald */
+}
+
+.form-control::placeholder {
+    color: #bbb !important; /* Lighter placeholder text */
+}
+
+.form-text {
+    color: #bbb !important; /* Lighter color for help text */
+    font-family: 'Oswald', sans-serif !important; /* Ensure help text also uses Oswald */
+}
+
+.form-check-label {
+    color: #fff !important; /* White text for checkbox label */
+    font-family: 'Oswald', sans-serif !important; /* Ensure checkbox label also uses Oswald */
+}
+
+/* Override text-danger for better visibility on dark background */
+.text-danger {
+    color: #ff6b6b !important; /* A brighter red for errors */
+    font-family: 'Oswald', sans-serif !important; /* Ensure error messages also use Oswald */
+}
+
+/* Styling for the navigation bar */
+.navbar {
+    background-color: #ffb6c1; /* Pink background for the navbar */
+}
+
+/* Styling for the brand (Agendinha text) */
+.navbar-brand {
+    color: #000 !important; /* Black text for the brand */
+    font-family: 'Tektur', sans-serif !important; /* Tektur for Agendinha */
+    font-weight: bold; /* Keep bold as per your original HTML */
+}
+
+/* Styling for the SVG icon within the navbar brand */
+.navbar-brand svg {
+    fill: #000 !important; /* Black fill for the SVG icon */
+}
+
+/* Styling for navigation links - now bold */
+.nav-link {
+    color: #000 !important; /* Black text for navigation links */
+    font-family: 'Oswald', sans-serif !important; /* Oswald for nav links */
+    font-weight: bold !important; /* Make navbar links bold */
+}
+
+/* Optional: If you want to keep the active link distinct */
+/*
+.nav-link.active {
+    font-weight: bold;
+    color: #333 !important;
+}
+*/
